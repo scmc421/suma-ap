@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de Números</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Suma</h1>
+        
+        <div class="mensaje-bienvenida">
+            <p>¡Haz clic en el botón para comenzar!</p>
+        </div>
+        
+        <button onclick="iniciarSuma()">Pedir números y sumar</button>
+        
+        <div class="historial" id="historial">
+            <h3>Historial de sumas:</h3>
+            <div id="resultados-historial"></div>
+        </div>
+    </div>
+
+    <script>
+        let historialSumas = [];
+
+        function iniciarSuma() {
+            alert("¡Vamos a sumar dos números!");
+            
+            let num1 = prompt("Ingresa el primer número:");
+            if (num1 === null) {
+                alert("Operación cancelada");
+                return;
+            }
+            
+            let num2 = prompt("Ingresa el segundo número:");
+            if (num2 === null) {
+                alert("Operación cancelada");
+                return;
+            }
+            
+            num1 = parseFloat(num1);
+            num2 = parseFloat(num2);
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Por favor, ingresa solo números válidos");
+                return;
+            }
+            
+            const suma = num1 + num2;
+            alert(`Resultado: ${num1} + ${num2} = ${suma}`);
+            
+            const operacion = {
+                num1: num1,
+                num2: num2,
+                resultado: suma,
+                fecha: new Date().toLocaleString()
+            };
+            
+            historialSumas.push(operacion);
+            mostrarHistorial();
+        }
+        
+        function mostrarHistorial() {
+            const historialDiv = document.getElementById('resultados-historial');
+            
+            if (historialSumas.length === 0) {
+                historialDiv.innerHTML = '<p class="vacio">No hay sumas realizadas aún</p>';
+                return;
+            }
+            
+            let htmlHistorial = '';
+            for (let i = historialSumas.length - 1; i >= 0; i--) {
+                const op = historialSumas[i];
+                htmlHistorial += `
+                    <div class="operacion">
+                        <span class="fecha">${op.fecha}</span>
+                        <span class="suma">${op.num1} + ${op.num2} = <strong>${op.resultado}</strong></span>
+                    </div>
+                `;
+            }
+            
+            historialDiv.innerHTML = htmlHistorial;
+        }
+        
+        window.onload = function() {
+            mostrarHistorial();
+        };
+    </script>
+</body>
+</html>
