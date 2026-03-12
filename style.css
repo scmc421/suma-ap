@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem;
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.mensaje-bienvenida {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-bottom: 2rem;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.historial {
+    border-top: 2px solid #f0f0f0;
+    padding-top: 1.5rem;
+}
+
+.operacion {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border-left: 4px solid #667eea;
+}
+
+.fecha {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 0.3rem;
+}
+
+.suma {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.suma strong {
+    color: #667eea;
+    font-size: 1.3rem;
+}
+
+.vacio {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 2rem;
+}
